@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Login {% endblock title %}
+{% block heading %} <a href="/addEmp" class="navbar-brand text-success"><h6>Login Page</h6></a> {% endblock heading %}
+{% block body %}
+<div class="container my-2">
+    <img src="/static/img/addemp.png" height="300px" width="100%">
+    <form class="m-2" action="/addEmp" method="post">
+        {% csrf_token %}
+
+{% endblock body%}
