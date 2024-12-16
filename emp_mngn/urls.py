@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from register import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mng_app.urls')),
-    path('members/',include('django.contrib.auth.urls')),
-    path('members/',include('members.urls'))
+    path('', include('mng_app.urls')),  # Change the route for your mng_app URLs
+    path('login/register/', v.register, name='register'),
+    path('', include("django.contrib.auth.urls")),  # Change the route for auth URLs
 ]

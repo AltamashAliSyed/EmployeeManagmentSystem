@@ -4,7 +4,7 @@
 {% block body %}
 
 <div class="container my-2">
-    <img src="/static/img/find.png" height="300px" width="100%">
+    <img src="https://i.pinimg.com/originals/e0/dc/ef/e0dcef9f693d5ada75cd04ce74e92bbf.gif" height="300px" width="100%">
     <form class="m-2" action="/filterEmp" method="post">
         {% csrf_token %}
         <div class="mb-1">
@@ -67,4 +67,7 @@
         </form>
     </nav>
 </div> 
+<div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+    <a href="{% url 'home' %}" class="btn btn-dark">Back</a>
+</div>
 {% endblock body%}

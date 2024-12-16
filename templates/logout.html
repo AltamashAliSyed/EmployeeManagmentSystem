@@ -1,0 +1,54 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        .container {
+            position: relative;
+            height: 100vh; /* Set container height to viewport height */
+            overflow: hidden; /* Hide overflow content */
+        }
+        .login-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .image-section {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center login-section">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Logout</h5>
+                </div>
+                <div class="card-body">
+                    <p>You have been successfully logged out.</p>
+                    <p>Would you like to <a href="{% url 'login' %}">log in again</a>?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row image-section">
+        <img src="https://webdolphin.co.uk/images/features/img-1.png" alt="My cool gif" class="w-100">
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+{% endblock body %}

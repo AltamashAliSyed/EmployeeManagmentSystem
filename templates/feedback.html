@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      
+      <div class="card">
+        
+
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Feedback Form</h5>
+        </div>
+        <div class="card-body">
+          <img src="https://i.pinimg.com/originals/62/0f/39/620f39ce8c3d0eeb9ae1241f7b78f704.gif" height="300px" width="100%">
+          <form action="." method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp">
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+              <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+            </div>
+
+            <div class="mb-3">
+              <label for="feedback" class="form-label">Feedback</label>
+              <textarea name="feedback" class="form-control" id="feedback" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+  <a href="{% url 'home' %}" class="btn btn-dark">Back</a>
+</div>
+{% endblock body %}

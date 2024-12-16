@@ -3,7 +3,7 @@
 {% block heading %} <a href="/removeEmp" class="navbar-brand text-danger"><h6>Remove An Employee</h6></a>{% endblock heading %}
 {% block body %}
 <div class="container my-2">
-    <img src="/static/img/sorry2.png" height="300px" width="100%">
+    <img src="https://cdn.dribbble.com/users/530580/screenshots/5923020/delete_photo.gif" height="300px" width="100%">
     <form class="m-2" action="/removeEmp" method="post">
         {% csrf_token %}
         <div class="mb-2">
@@ -31,4 +31,7 @@
         </form>
     </nav>
 </div> 
+<div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+    <a href="{% url 'home' %}" class="btn btn-dark">Back</a>
+</div>
 {% endblock body%}

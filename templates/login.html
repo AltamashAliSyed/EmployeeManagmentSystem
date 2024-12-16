@@ -1,0 +1,136 @@
+{% load crispy_forms_tags %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Add gradient background CSS here */
+        .gradient-background {
+            background: linear-gradient(135deg, #CCCCCC, #999999);
+        }
+        .form-check-label {
+            color: #000; /* Black color */
+        }
+        /* Rest of your existing CSS */
+        .container {
+            margin-top: 50px;
+        }
+        /* Card styles */
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+        }
+        .card-title {
+            margin-bottom: 0;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        /* Form styles */
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-primary {
+            border-radius: 5px;
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        /* Register link styles */
+        .register-link {
+            color: #fff; /* Changing link color to white */
+            text-decoration: none;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        .gif-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .gif {
+            width: 100%;
+            max-width: 800px; /* Increased the max-width of the gif */
+            height: auto;
+        }
+        .register-link {
+    color: #000000; /* Black color */
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+
+{% load widget_tweaks %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 order-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Login</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                {{ form.username|add_class:"form-control" }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                </div>
+                                {{ form.password|add_class:"form-control" }}
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="remember_me">
+                            <label class="form-check-label" for="remember_me">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <p class="mb-0">Don't have an account? <a href="{% url 'register' %}" class="register-link">Register</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="gif-container">
+                <img src="https://visme.co/blog/wp-content/uploads/2020/06/animated-interactive-infographics-header.gif" alt="My cool gif" class="gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+{% endblock body %}

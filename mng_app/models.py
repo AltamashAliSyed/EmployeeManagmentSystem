@@ -43,8 +43,16 @@ class Employee(models.Model):
         return f"{self.first_name} {self.last_name}"
     
 
+
 class Feedback(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_feedbacks')
-    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_feedbacks')
-    date_time = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    feedback = models.CharField(max_length=1000, default=" ")
+
+    def __str__(self):
+        return self.name
+
+
+    
+
+    

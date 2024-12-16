@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse,render,redirect
-from mng_app.models import Department,Role,Employee 
+from mng_app.models import Department,Role,Employee
 from django.contrib import messages
-
 from .models import Feedback
+from datetime import date
+
 # Create your views here.
 
+
 # home page 
+
+
+def login_view(request):
+    # Render the login page template
+    return render(request, 'login.html')
+
 def home(request):
     emp = Employee.objects.all()
     context = {'emp':emp}
@@ -180,18 +188,15 @@ def search(request):
     return render(request,'filterEmp2.html',context2)
 
 
-
-def submit_feedback(request):
-    if request.method == 'POST':
-        sender = request.user
-        recipient_id = request.POST.get('recipient_id')  # Assuming you have a form field for recipient ID
-        content = request.POST.get('content')  # Assuming you have a form field for feedback content
-        if recipient_id and content:
-            recipient = User.objects.get(id=recipient_id)
-            feedback = Feedback.objects.create(sender=sender, recipient=recipient, content=content)
-            messages.success(request, 'Feedback submitted successfully!')
-            return redirect('home')  # Redirect to home page after submission
-        else:
-            messages.error(request, 'Please fill in all the fields!')
-    return render(request, 'feedback_form.html')
+def feedback(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        feedback = request.POST["feedback"]
+        
+        obj=Feedback(name=name,email=email,feedback=feedback)
+        obj.save()
+        
+        
+    return render(request,'feedback.html')
 

@@ -9,7 +9,11 @@
     <body>
         <nav class="navbar bg-success">
             <div class="container">
-                    <a href="/" class="navbar-brand"><h5>Employee Management System</h5></a>
+                    <a href="{% url "home" %}" class="navbar-brand"><h5>Employee Management System</h5></a>
+                    <a class="nav-link btn btn-warning"  href="{% url 'logout' %}">Logout</a>
+
+                    
+
             </div>
         </nav>
         <nav class="navbar bg-light">
@@ -19,6 +23,8 @@
                     {% csrf_token %}
                     <input class="form-control me-2" type="search" placeholder="Quick Search here.." aria-label="Search" name="search">
                     <button class="btn btn-dark" type="submit">Search</button>
+                
+                
                 </form>
             </div>
         </nav>
@@ -39,7 +45,7 @@
     <nav class="navbar bg-secondary mt-1">
         <div class="container">
             <p align='center' class="text-danger">
-                <h6>@GAA registers</h6>
+                <h6>@ MADE BY GAA REGISTERS </h6>
             </p>
         </div>
     </nav>
